@@ -18,8 +18,8 @@ class TrainCGAN:
         self.features_dim = args["features"]
         self.datasets = PrepareDatasets(self.args)
         self.models = CreateModels(self.args, False, True)
-        self.create_pretrain_model_affine()
-        self.include_gen(self.args["dataset_target_dim"])
+        #self.create_pretrain_model_affine()
+        #self.include_gen(self.args["dataset_target_dim"])
         self.dir_results = dir_results
 
         """ Metrics to assess quality of profiling attack: Max SNR, Guessing entropy, Ntraces_GE = 1, Perceived Information """
