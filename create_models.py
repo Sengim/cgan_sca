@@ -75,8 +75,8 @@ class CreateModels:
             self.discriminator = self.define_discriminator_random(args["features"], n_classes=classes)
             # create the generator
             self.generator = self.define_generator_random(args["dataset_target_dim"], args["features"])
-            self.generator = self.define_generator(args["dataset_target_dim"], args["features"])
-            self.discriminator = self.define_discriminator(args["features"], n_classes=classes)
+            # self.generator = self.define_generator(args["dataset_target_dim"], args["features"])
+            # self.discriminator = self.define_discriminator(args["features"], n_classes=classes)
 
     def best_models_10000_var_dpa(self):
         self.hp_d = {
