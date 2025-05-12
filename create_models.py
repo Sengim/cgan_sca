@@ -69,8 +69,8 @@ class CreateModels:
             #                                             n_classes=9 if args["leakage_model"] == "HW" else 256)
             # # create the generator
             # self.generator = self.define_generator(args["dataset_target_dim"], args["features"])
-            #self.best_models_random_search(args["dataset_reference"], args["dataset_target"])
-            self.best_models_10000_var_dpa()
+            self.best_models_random_search(args["dataset_reference"], args["dataset_target"])
+            #self.best_models_10000_var_dpa()
             # create the discriminator
             self.discriminator = self.define_discriminator_random(args["features"], n_classes=classes)
             # create the generator
