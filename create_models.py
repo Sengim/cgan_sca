@@ -6,7 +6,6 @@ from tensorflow.keras.models import *
 from tensorflow.keras.optimizers import *
 from tensorflow.keras.regularizers import *
 import tensorflow.keras.backend as K
-from adahessian import AdaHessian
 import random
 
 
@@ -21,7 +20,7 @@ class CreateModels:
         self.cross_entropy_disc = BinaryCrossentropy(from_logits=True)
 
         if include_pretrain:
-            self.generator_optimizer = AdaHessian(0.002)
+            self.generator_optimizer = tf.keras.optimizers.Adam(0.0002, beta_1=0.5)
             self.discriminator_optimizer = tf.keras.optimizers.Adam(0.0025, beta_1=0.5)
             self.affine_mod = self.pretrain_affine_part(args["features"])
             self.bool_mod = self.pre_train_bool_part(args["features"])
