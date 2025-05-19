@@ -188,7 +188,7 @@ class TrainCGAN:
         plt.ylabel("SNR")
         plt.legend()
         if synthetic_traces:
-            if (epoch + 1) % 200 == 0:
+            if (epoch + 1) % 10 == 0:
                 plt.savefig(f"{self.dir_results}/snr_target_features_fake_{epoch}.png")
         else:
             plt.savefig(f"{self.dir_results}/snr_target_features_real_{epoch}.png")
@@ -331,7 +331,6 @@ class TrainCGAN:
                 
                 # Custom training step for speed and versatility
                 g_loss, d_loss = self.train_step(traces_target, labels_target, features_reference, labels_reference)
-                self.full_class.train_on_batch(traces_target,to_categorical(labels_target, num_classes=256) )
                 if (b + 1) % 100 == 0:
                     self.real_acc.append(self.models.real_accuracy_metric.result())
                     self.fake_acc.append(self.models.fake_accuracy_metric.result())
@@ -368,7 +367,7 @@ class TrainCGAN:
                 #self.datasets.dataset_target.x_profiling =  augment_renew(self.datasets.dataset_target.x_profiling, 15, self.args["n_profiling_target"])
                 self.compute_snr_target_features(e)
                 # self.attack_eval_synthetic(e)
-            if (e + 1) % 200 == 0 and not self.datasets.dataset_target.name == "spook_sw3":
+            if (e + 1) % self.args["epochs"] == 0 and not self.datasets.dataset_target.name == "spook_sw3":
                 self.attack_eval(e)
                 # self.models.generator.save(
                 #     f"{self.dir_results}/generator_{self.datasets.traces_target_dim}_{self.datasets.traces_reference_dim}_epoch_{e}.h5")

@@ -9,9 +9,9 @@ from CGANSCA import *
 # results_root_path = "D:/postdoc/paper_cgan_features/results"
 # results_root_path = "D:/postdoc/paper_cgan_features/cgan_reference_features"
 
-dataset_root_path = "C:/Users/Sengim/Datasets"
-results_root_path = "C:/Users/Sengim/Datasets/paper_9_gan_results"
-features_root_path = "C:/Users/Sengim/Datasets/paper_9_gan_features"
+dataset_root_path = "/mnt/d/Datasets"
+results_root_path = "/mnt/d/Datasets/paper_9_gan_results"
+features_root_path = "/mnt/d/Datasets/paper_9_gan_features"
 
 # dataset_root_path = "/data1/karayalcins/datasets"
 # results_root_path = "/data1/karayalcins/datasets/paper_9_gan_results"
