@@ -17,7 +17,7 @@ class TrainCGAN:
         self.args = args
         self.features_dim = args["features"]
         self.datasets = PrepareDatasets(self.args)
-        self.models = CreateModels(self.args, False, True)
+        self.models = CreateModels(self.args, False, False)
         #self.create_pretrain_model_affine()
         #self.include_gen(self.args["dataset_target_dim"])
         self.dir_results = dir_results
